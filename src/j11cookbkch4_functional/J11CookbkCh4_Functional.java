@@ -5,6 +5,8 @@
  */
 package j11cookbkch4_functional;
 
+import j11cookbkch4_functional.example01.Example01;
+
 /**
  *
  * @author ngke
@@ -15,7 +17,8 @@ public class J11CookbkCh4_Functional {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Example01 ex1 = new Example01();
+        ex1.run();
     }
     
 }

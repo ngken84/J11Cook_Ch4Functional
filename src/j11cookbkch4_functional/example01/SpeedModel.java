@@ -13,6 +13,8 @@ package j11cookbkch4_functional.example01;
 public interface SpeedModel {
     // ANY INTERFACE THAT HAS ONLY ONE ABSTRACT METHOD is called a FUNCTIONAL 
     // INTERFACE
+    // adding the FunctionalInterface annotation can be added to ensure you 
+    // follow the rules
     double getSpeedMph(double timeSec, int weightPounds, int horsePower);
     enum DrivingCondition {
         ROAD_CONDITION,
@@ -34,4 +36,6 @@ public interface SpeedModel {
         return 1.609344 * miles;
     }
     
+    // The presense of abstract methods from java.lang.Object  
+    boolean equals(Object obj);
 }
