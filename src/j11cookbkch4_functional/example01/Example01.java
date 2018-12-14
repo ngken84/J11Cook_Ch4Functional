@@ -19,7 +19,7 @@ public class Example01 {
     
     public void run() {
         useExistingFuncInt();
-        
+        lambdaCaveats();
         
     }
     
@@ -132,7 +132,43 @@ public class Example01 {
             return (double) Math.round(Math.sqrt(v) * 0.68);
         };
         imp.setSpeedModel(model);
-        
-        
     }
+    
+    private String prop = "Example01 PROP";
+    
+    //Notes on Lamda's, you can refer to variables outside the lamda but they must
+    // be declared as final.
+    public void lambdaCaveats() {
+        
+        final int myNumber = 19;
+        
+        SpeedModel model = (time, weight, horse) -> {
+            return time * myNumber + weight + horse;
+        };
+        
+        System.out.println("Number must be " + model.getSpeedMph(10.0, 1, 200));
+        
+        
+        Consumer<String> consumer = s -> {
+            System.out.println("Lamda accept(" + s + "): this.prop = " + this.prop);
+        };
+        
+        consumer.accept("TEST");
+        
+        consumer = new Consumer<String>() {
+            private String prop = "CONSUMER PROP";
+
+            @Override
+            public void accept(String t) {
+                System.out.println("Lamda accept(" + t + "): this.prop = " + this.prop);
+            }
+            
+        };
+        
+        consumer.accept("TEST 2");
+    }
+    
+    
+    
 }
+
